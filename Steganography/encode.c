@@ -158,7 +158,7 @@ OperationType check_operation_type(char *argv[])
 /* Reads and validates Encode args from argv */
 Status read_and_validate_encode_args(char *argv[], EncodeInfo *encInfo)
 {
-	// if => 2nd command-line argument doesn't contain extention, then print error and return e_failure.
+	// if => 3rd command-line argument doesn't contain extention, then print error and return e_failure.
 	if(strstr(argv[2], ".") == NULL)
 	{
 		printf("ERROR: %s is not a .bmp file.\n", argv[2]);
@@ -174,7 +174,7 @@ Status read_and_validate_encode_args(char *argv[], EncodeInfo *encInfo)
 		//copy base address of argv[2] to src_image_fname pointer.
 		encInfo->src_image_fname = argv[2];
 		
-		// if => 3rd command-line argument doesn't contain extention, then print error and return e_failure.
+		// if => 4th command-line argument doesn't contain extention, then print error and return e_failure.
 		if(strstr(argv[3], ".") == NULL)
 		{
 			printf("ERROR: Secret message file should be .txt/.sh/.c file only.\n");	
@@ -205,7 +205,7 @@ Status read_and_validate_encode_args(char *argv[], EncodeInfo *encInfo)
 			// if => argv[4] is entered by user, then if condition is true.
 			if(!(argv[4] == NULL))
 			{
-				// if => 4rd command-line argument doesn't contain extention, then print error and return e_failure.
+				// if => 5th command-line argument doesn't contain extention, then print error and return e_failure.
 				if(strstr(argv[4], ".") == NULL)
 				{
 					printf("ERROR: Destination file %s is not a .bmp file.\n", argv[4]);
