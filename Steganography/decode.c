@@ -78,7 +78,7 @@ Status open_img_file(DecodeInfo *decInfo)
 /* Reads and validates Decode args from argv */
 Status read_and_validate_decode_args(char *argv[], DecodeInfo *decInfo)
 {
-	// if => 2nd command-line argument doesn't contain extention, then print error and return e_failure.
+	// if => 3rd command-line argument doesn't contain extention, then print error and return e_failure.
 	if(strstr(argv[2], ".") == NULL)
 	{
 		printf("ERROR: Entered %s is not .bmp file.\n", argv[2]);
@@ -99,14 +99,14 @@ Status read_and_validate_decode_args(char *argv[], DecodeInfo *decInfo)
 		}
 		else	// if => argv[3] is entered by user, then else part is true.
 		{
-			// if => 3rd command-line argument doesn't contain extention, then if condition is true.
+			// if => 4th command-line argument doesn't contain extention, then if condition is true.
 			if(strstr(argv[3], ".") == NULL)
 			{
-				// user entered 3rd command-line argument is taken as decoded secret file name and then extention is added after decoding.
+				// user entered 4th command-line argument is taken as decoded secret file name and then extention is added after decoding.
 				decInfo->secret_fname = argv[3];
 				return e_success;
 			}
-			else	//if => 3rd command-line argument contain any extension then print error and return e_failure.
+			else	//if => 4th command-line argument contain any extension then print error and return e_failure.
 			{
 				printf("ERROR: Entered %s should not contain extention. Since extension is encoded in image file.\n", argv[3]);
 				return e_failure;
